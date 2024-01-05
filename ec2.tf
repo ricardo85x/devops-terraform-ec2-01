@@ -7,7 +7,9 @@ resource "aws_instance" "env-prod" {
     "allow_ssh", 
     "allow_http", 
     "allow_egress",
-]
+  ]
+
+  user_data = file("ec2_script.sh")
 
   tags = {
     Name = "env-prod"
