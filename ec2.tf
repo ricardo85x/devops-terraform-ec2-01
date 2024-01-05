@@ -3,6 +3,12 @@ resource "aws_instance" "env-prod" {
   instance_type = "t2.micro"
   key_name = "terraform"
 
+  security_groups = [
+    "allow_ssh", 
+    "allow_http", 
+    "allow_egress",
+]
+
   tags = {
     Name = "env-prod"
   }
